@@ -42,6 +42,7 @@ constrain_positions(Cars, Order) :-
     length(Cars, Len),
     % min and max car # passengers can reach
     [MinWalk, MaxWalk] ins 1..Len,
+    MinWalk #=< MaxWalk,
     maplist(a_car(Len, MinWalk, MaxWalk), Cars, Order).
 
 % the observation must be at the end, and we must
